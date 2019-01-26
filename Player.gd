@@ -1,7 +1,9 @@
 extends KinematicBody2D
+class_name Player
 
 var jumping := false
 var velocity := Vector2()
+const is_player = true
 
 func _physics_process(delta: float) -> void:
 	var acceleration := Vector2()
@@ -31,9 +33,25 @@ func _physics_process(delta: float) -> void:
 		velocity.y -= 4
 
 	# apply gravity
-	velocity.y = min(velocity.y + 8, 300)
-	if velocity.y > 100:
+	velocity.y = min(velocity.y + 9, 300)
+	if velocity.y > 20:
 		jumping = false
+	
+	# run animations
+	if velocity.y < 0:
+		$AnimatedSprite.play("jump")
+	elif velocity.y > 0 and not is_on_floor():
+		$AnimatedSprite.play("fall")
+	elif velocity.x != 0:
+		$AnimatedSprite.play("run")
+	else:
+		$AnimatedSprite.play("idle")
+	
+	# flip sprite
+	if velocity.x > 0:
+		$AnimatedSprite.flip_h = false
+	if velocity.x < 0:
+		$AnimatedSprite.flip_h = true
 	
 	if not jumping:
 		move_and_slide_with_snap(velocity, Vector2(0,5), Vector2(0,-1))
