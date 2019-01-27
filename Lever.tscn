@@ -1,16 +1,30 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Lever.gd" type="Script" id=1]
+[ext_resource path="res://lever_rock.png" type="Texture" id=1]
+[ext_resource path="res://Lever.gd" type="Script" id=2]
+[ext_resource path="res://lever_log.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 
-extents = Vector2( 162.286, 3.62645 )
+extents = Vector2( 215.778, 22.2703 )
 
 [node name="Lever" type="Node2D"]
 
+[node name="Stand" type="Sprite" parent="."]
+position = Vector2( -6.41101, 6.78812 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+
 [node name="Platform" type="KinematicBody2D" parent="."]
-script = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="Platform"]
+position = Vector2( -2.2627, 11.6907 )
+scale = Vector2( 0.7, 0.5 )
+texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platform"]
+position = Vector2( -1.50847, -23.3813 )
+rotation = -0.0230115
 shape = SubResource( 1 )
 

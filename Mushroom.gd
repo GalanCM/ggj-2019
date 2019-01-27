@@ -1,4 +1,7 @@
 extends StaticBody2D
+class_name Mushroom
+
+signal player_bounce
 
 func _ready() -> void:
 	$Area2D.connect("body_entered", self, "bounce")
@@ -15,7 +18,14 @@ func _physics_process(delta: float) -> void:
 		$AnimatedSprite.play("default")
 	
 func bounce(body):
-	if (body is Player and body.global_position.y < global_position.y):
-		body.jumping = true
-		body.velocity.y *= -1.5 #-450
-		
+	if (body is Player):
+		emit_signal("player_bounce")
+
+		if rotation == 0 and body.global_position.y < global_position.y-20:
+			body.velocity.y = min(body.velocity.y * -1.5, -50)
+			body.jumping = true
+		elif body.global_position.y > global_position.y+20:
+			body.velocity.y = max(body.velocity.y * -1.5, 300)
+			print(body.velocity.y, 'y')
+#			print(body.velocity.reflect(Vector2(0,-1).rotated(rotation) ) * 10)
+#			body.velocity = body.velocity.reflect( Vector2(0,-1).rotated(-rotation) ) * 1

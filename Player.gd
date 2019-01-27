@@ -57,3 +57,7 @@ func _physics_process(delta: float) -> void:
 		move_and_slide_with_snap(velocity, Vector2(0,5), Vector2(0,-1))
 	else:
 		move_and_slide(velocity, Vector2(0,-1))
+		
+func idle():
+	if $AnimatedSprite:
+		$AnimatedSprite.play("idle")

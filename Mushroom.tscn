@@ -40,17 +40,14 @@ playing = true
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Area2D"]
-visible = false
 position = Vector2( 0.889, -23.7036 )
 shape = SubResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2( 0.888885, -8.07407 )
 shape = SubResource( 1 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2( 0, 23.1852 )
 shape = SubResource( 2 )
 
