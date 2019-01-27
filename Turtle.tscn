@@ -1,0 +1,73 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Turtle.gd" type="Script" id=1]
+[ext_resource path="res://npcs/turtleshell.png" type="Texture" id=2]
+[ext_resource path="res://npcs/turtle_head.png" type="Texture" id=3]
+
+[sub_resource type="Animation" id=1]
+
+resource_name = "Walk"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Head:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.2, 2 ),
+"transitions": PoolRealArray( 1.7411, 0.466517, 1 ),
+"update": 0,
+"values": [ Vector2( 500, 13 ), Vector2( 520, 33 ), Vector2( 500, 13 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Head:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 2.14355, 0.329877 ),
+"update": 0,
+"values": [ 0.0, 8.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Shell:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 2, 0.5, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -10 ), Vector2( 0, 0 ) ]
+}
+
+[node name="Turtle" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Shell" type="KinematicBody2D" parent="."]
+
+[node name="Sprite" type="Sprite" parent="Shell"]
+texture = ExtResource( 2 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Shell"]
+visible = false
+polygon = PoolVector2Array( -295.815, 47.8245, -214.538, -34.2897, -137.452, -80.3742, -0.87384, -89.5911, 127.325, -86.2395, 238.766, -17.5317, 301.608, 71.2857, 309.149, 95.5848, -303.356, 94.7469 )
+
+[node name="Head" type="KinematicBody2D" parent="."]
+position = Vector2( 500, 13 )
+
+[node name="Sprite" type="Sprite" parent="Head"]
+texture = ExtResource( 3 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Head"]
+visible = false
+polygon = PoolVector2Array( -94.4923, 80.0711, -76.0585, 8.01172, -15.7297, -49.8034, 40.4095, -55.6687, 89.8457, -44.776, 89.0078, 1.30847, 67.2224, 24.7697, 6.05566, 51.5825, -8.1886, 80.909 )
+
+[node name="WalkCyclePlayer" type="AnimationPlayer" parent="."]
+anims/Walk = SubResource( 1 )
+

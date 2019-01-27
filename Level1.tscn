@@ -1,0 +1,131 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://level 3 attempt 3.png" type="Texture" id=1]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Platform.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Mushroom.tscn" type="PackedScene" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+extents = Vector2( 303.986, 20 )
+
+[sub_resource type="RectangleShape2D" id=6]
+
+extents = Vector2( 102.845, 20 )
+
+[sub_resource type="RectangleShape2D" id=4]
+
+extents = Vector2( 136.756, 20 )
+
+[sub_resource type="RectangleShape2D" id=3]
+
+extents = Vector2( 92.9767, 67.039 )
+
+[sub_resource type="RectangleShape2D" id=5]
+
+extents = Vector2( 125.118, 127.594 )
+
+[sub_resource type="RectangleShape2D" id=2]
+
+extents = Vector2( 1501.32, 20 )
+
+[node name="Level1" type="Node2D"]
+
+[node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+centered = false
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1685.83, 733.235 )
+
+[node name="Platform" parent="." instance=ExtResource( 3 )]
+position = Vector2( 49.2105, 1008.8 )
+
+[node name="Platform2" parent="." instance=ExtResource( 3 )]
+editor/display_folded = true
+position = Vector2( 449.156, 982.146 )
+
+[node name="CollisionShape2D" parent="Platform2" index="0"]
+position = Vector2( 9.37604, 0 )
+shape = SubResource( 1 )
+
+[node name="Platform5" parent="." instance=ExtResource( 3 )]
+editor/display_folded = true
+position = Vector2( 1245.68, 808.634 )
+
+[node name="CollisionShape2D" parent="Platform5" index="0"]
+position = Vector2( -2.32898, 0 )
+
+[node name="Platform6" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1436.66, 872.682 )
+
+[node name="Platform9" parent="." instance=ExtResource( 3 )]
+editor/display_folded = true
+position = Vector2( 2507.87, 682.217 )
+
+[node name="CollisionShape2D" parent="Platform9" index="0"]
+shape = SubResource( 6 )
+
+[node name="Platform10" parent="." instance=ExtResource( 3 )]
+editor/display_folded = true
+position = Vector2( 2775.98, 573.034 )
+
+[node name="Platform7" parent="." instance=ExtResource( 3 )]
+editor/display_folded = true
+position = Vector2( 1717.31, 890.149 )
+rotation = 0.394165
+
+[node name="CollisionShape2D" parent="Platform7" index="0"]
+position = Vector2( -2.32898, 0 )
+rotation = -1.06054
+shape = SubResource( 4 )
+
+[node name="Platform4" parent="." instance=ExtResource( 3 )]
+editor/display_folded = true
+position = Vector2( 1013.94, 955.362 )
+
+[node name="CollisionShape2D" parent="Platform4" index="0"]
+position = Vector2( -3.43359, -9.31604 )
+shape = SubResource( 3 )
+
+[node name="Platform8" parent="." instance=ExtResource( 3 )]
+editor/display_folded = true
+position = Vector2( 1995.62, 898.301 )
+
+[node name="CollisionShape2D" parent="Platform8" index="0"]
+position = Vector2( -3.43359, -9.31604 )
+shape = SubResource( 5 )
+
+[node name="Platform3" parent="." instance=ExtResource( 3 )]
+editor/display_folded = true
+position = Vector2( 2042.86, 1033.67 )
+
+[node name="CollisionShape2D" parent="Platform3" index="0"]
+position = Vector2( 245.299, 0 )
+shape = SubResource( 2 )
+
+[node name="Mushroom" parent="." instance=ExtResource( 4 )]
+position = Vector2( 2207.6, 950.138 )
+
+[node name="Mushroom2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 2844.51, 503.699 )
+
+[node name="Mushroom3" parent="." instance=ExtResource( 4 )]
+position = Vector2( 3055.6, 393.302 )
+rotation = -2.46093
+
+
+[editable path="Platform2"]
+
+[editable path="Platform5"]
+
+[editable path="Platform9"]
+
+[editable path="Platform7"]
+
+[editable path="Platform4"]
+
+[editable path="Platform8"]
+
+[editable path="Platform3"]

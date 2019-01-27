@@ -2,7 +2,7 @@
 
 [sub_resource type="RectangleShape2D" id=1]
 
-extents = Vector2( 240, 20 )
+extents = Vector2( 90.0095, 20 )
 
 [node name="Platform" type="StaticBody2D"]
 
