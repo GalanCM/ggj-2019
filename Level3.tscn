@@ -1,11 +1,12 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
-[ext_resource path="res://level 3 part 4.png" type="Texture" id=1]
+[ext_resource path="res://level 3 part 7.png" type="Texture" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Platform.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Mushroom.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Lever.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Turtle.tscn" type="PackedScene" id=6]
+[ext_resource path="res://water.png" type="Texture" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -172,10 +173,15 @@ position = Vector2( 1409.83, 915.586 )
 scale = Vector2( 1.6, 1.6 )
 
 [node name="Turtle" parent="." instance=ExtResource( 6 )]
-position = Vector2( 4719.19, 632.806 )
+position = Vector2( 4723.03, 677.656 )
 
 [node name="MovementPlayer" type="AnimationPlayer" parent="Turtle"]
 anims/Walk = SubResource( 10 )
+
+[node name="Sprite2" type="Sprite" parent="."]
+position = Vector2( 5393, 776.338 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 7 )
 
 
 [editable path="Platform"]

@@ -26,6 +26,5 @@ func bounce(body):
 			body.jumping = true
 		elif body.global_position.y > global_position.y+20:
 			body.velocity.y = max(body.velocity.y * -1.5, 300)
-			print(body.velocity.y, 'y')
 #			print(body.velocity.reflect(Vector2(0,-1).rotated(rotation) ) * 10)
 #			body.velocity = body.velocity.reflect( Vector2(0,-1).rotated(-rotation) ) * 1
