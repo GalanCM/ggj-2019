@@ -1,20 +1,15 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Lever.gd" type="Script" id=1]
 
 [sub_resource type="RectangleShape2D" id=1]
 
-extents = Vector2( 159.591, 3.62645 )
+extents = Vector2( 162.286, 3.62645 )
 
 [node name="Lever" type="Node2D"]
 
-[node name="PinJoint2D" type="PinJoint2D" parent="."]
-node_a = NodePath("../Stand")
-node_b = NodePath("../Platform")
-
-[node name="Stand" type="StaticBody2D" parent="."]
-position = Vector2( 0, 38.5384 )
-
-[node name="Platform" type="RigidBody2D" parent="."]
-linear_damp = 128.0
+[node name="Platform" type="KinematicBody2D" parent="."]
+script = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platform"]
 shape = SubResource( 1 )
