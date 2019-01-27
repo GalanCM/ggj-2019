@@ -5,6 +5,15 @@ var jumping := false
 var velocity := Vector2()
 const is_player = true
 
+func _ready() -> void:
+	if get_tree().get_nodes_in_group("Level").size() > 1 and get_parent().name != "Level1":
+		queue_free()
+	elif get_tree().get_nodes_in_group("Level").size() > 1:
+		print('rp')
+		get_parent().call_deferred("remove_child", self)
+		get_node("/root/Gameworld").call_deferred("add_child", self)
+		print(get_parent().name)
+
 func _physics_process(delta: float) -> void:
 	var acceleration := Vector2()
 

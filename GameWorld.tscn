@@ -1,98 +1,16 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://Platform.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Mushroom.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Lever.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Turtle.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Bird.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Level1.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Level2.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Level3.tscn" type="PackedScene" id=3]
 
-[sub_resource type="RectangleShape2D" id=1]
+[node name="Gameworld" type="Node2D"]
 
-extents = Vector2( 243.91, 20 )
+[node name="Level1" parent="." instance=ExtResource( 1 )]
 
-[sub_resource type="Animation" id=2]
+[node name="Level2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1840.61, -91.3486 )
 
-resource_name = "Walk"
-length = 5.0
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 5 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 1170, 662 ), Vector2( 1718, 662 ) ]
-}
-tracks/1/type = "animation"
-tracks/1/path = NodePath("WalkCyclePlayer")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"clips": PoolStringArray( "Walk", "[stop]" ),
-"times": PoolRealArray( 0, 5 )
-}
+[node name="Level3" parent="." instance=ExtResource( 3 )]
+position = Vector2( 6536.35, -85.4709 )
 
-[node name="GameWorld" type="Node2D"]
-
-[node name="Platform" parent="." instance=ExtResource( 1 )]
-position = Vector2( 242, 698 )
-
-[node name="CollisionShape2D" parent="Platform" index="0"]
-shape = SubResource( 1 )
-
-[node name="Platform2" parent="." instance=ExtResource( 1 )]
-position = Vector2( 1040, 698 )
-
-[node name="CollisionShape2D" parent="Platform2" index="0"]
-position = Vector2( 1475, 0 )
-shape = SubResource( 1 )
-
-[node name="Platform3" parent="." instance=ExtResource( 1 )]
-position = Vector2( 1155, 610 )
-rotation = -0.394679
-
-[node name="CollisionShape2D" parent="Platform3" index="0"]
-position = Vector2( 1361.6, 567.155 )
-shape = SubResource( 1 )
-
-[node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 45, 455.343 )
-
-[node name="AnimatedSprite" parent="Player" index="0"]
-frame = 1
-
-[node name="Camera2D" parent="Player" index="3"]
-limit_bottom = 700
-
-[node name="Mushroom" parent="." instance=ExtResource( 3 )]
-position = Vector2( 465.739, 620.478 )
-rotation = 0.0245865
-
-[node name="Lever" parent="." instance=ExtResource( 4 )]
-position = Vector2( 156.563, 610.043 )
-
-[node name="Turtle" parent="." instance=ExtResource( 5 )]
-position = Vector2( 1170, 662 )
-
-[node name="MovementPlayer" type="AnimationPlayer" parent="Turtle"]
-anims/Walk = SubResource( 2 )
-
-[node name="Birb" parent="." instance=ExtResource( 6 )]
-position = Vector2( 434.753, 299.879 )
-
-
-[editable path="Platform"]
-
-[editable path="Platform2"]
-
-[editable path="Platform3"]
-
-[editable path="Player"]
-
-[editable path="Turtle"]

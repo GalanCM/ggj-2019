@@ -7,3 +7,6 @@ func zoom_to(new_zoom):
 	$ZoomTween.remove_all()
 	$ZoomTween.interpolate_method(self, "set_zoom", get_zoom(), target_zoom, 0.2, Tween.TRANS_QUAD, Tween.EASE_IN_OUT)
 	$ZoomTween.start()
+	
+func fade_out():
+	$Fade/AnimationPlayer.play("FadeOut")

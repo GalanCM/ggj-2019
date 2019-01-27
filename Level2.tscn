@@ -1,9 +1,11 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=16 format=2]
 
-[ext_resource path="res://level 2 part 8.png" type="Texture" id=1]
+[ext_resource path="res://level 2 part 9.png" type="Texture" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Platform.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Mushroom.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Lever.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Bird.tscn" type="PackedScene" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -13,30 +15,94 @@ extents = Vector2( 303.986, 20 )
 
 extents = Vector2( 102.845, 20 )
 
-[sub_resource type="RectangleShape2D" id=4]
-
-extents = Vector2( 136.756, 20 )
-
 [sub_resource type="RectangleShape2D" id=3]
 
 extents = Vector2( 92.9767, 67.039 )
 
 [sub_resource type="RectangleShape2D" id=5]
 
-extents = Vector2( 125.118, 127.594 )
+extents = Vector2( 125.118, 98.1307 )
+
+[sub_resource type="RectangleShape2D" id=7]
+
+extents = Vector2( 204.121, 192.756 )
+
+[sub_resource type="RectangleShape2D" id=8]
+
+extents = Vector2( 322.901, 257.33 )
 
 [sub_resource type="RectangleShape2D" id=2]
 
-extents = Vector2( 1501.32, 20 )
+extents = Vector2( 1497.95, 31.1447 )
 
-[node name="Level2" type="Node2D"]
+[sub_resource type="RectangleShape2D" id=10]
+
+extents = Vector2( 214.889, 31.1447 )
+
+[sub_resource type="Animation" id=9]
+
+resource_name = "Enter"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 410.254, -701.79 ), Vector2( -28.9548, -85.6971 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimatedSprite:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("AnimatedSprite:speed_scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.6, 1.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("AnimatedSprite:animation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "Empty" ]
+}
+
+[node name="Level2" type="Node2D" groups=[
+"Level",
+]]
 
 [node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 1 )
 centered = false
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 2850.46, 281.944 )
+position = Vector2( 3488.14, 551.253 )
 
 [node name="Platform" parent="." instance=ExtResource( 3 )]
 position = Vector2( 49.2105, 1008.8 )
@@ -70,16 +136,6 @@ shape = SubResource( 6 )
 editor/display_folded = true
 position = Vector2( 2775.98, 573.034 )
 
-[node name="Platform7" parent="." instance=ExtResource( 3 )]
-editor/display_folded = true
-position = Vector2( 1717.31, 890.149 )
-rotation = 0.394165
-
-[node name="CollisionShape2D" parent="Platform7" index="0"]
-position = Vector2( -2.32898, 0 )
-rotation = -1.06054
-shape = SubResource( 4 )
-
 [node name="Platform4" parent="." instance=ExtResource( 3 )]
 editor/display_folded = true
 position = Vector2( 1013.94, 955.362 )
@@ -93,16 +149,38 @@ editor/display_folded = true
 position = Vector2( 1995.62, 898.301 )
 
 [node name="CollisionShape2D" parent="Platform8" index="0"]
-position = Vector2( -3.43359, -9.31604 )
+position = Vector2( -3.43359, 17.3733 )
 shape = SubResource( 5 )
 
-[node name="Platform3" parent="." instance=ExtResource( 3 )]
+[node name="Platform11" parent="." instance=ExtResource( 3 )]
 editor/display_folded = true
+position = Vector2( 3404.12, 803.675 )
+
+[node name="CollisionShape2D" parent="Platform11" index="0"]
+position = Vector2( -3.43359, 17.3733 )
+shape = SubResource( 7 )
+
+[node name="Platform12" parent="." instance=ExtResource( 3 )]
+editor/display_folded = true
+position = Vector2( 4373.41, 766.106 )
+
+[node name="CollisionShape2D" parent="Platform12" index="0"]
+position = Vector2( -3.43359, 17.3733 )
+shape = SubResource( 8 )
+
+[node name="Platform3" parent="." instance=ExtResource( 3 )]
 position = Vector2( 2042.86, 1033.67 )
 
 [node name="CollisionShape2D" parent="Platform3" index="0"]
 position = Vector2( 245.299, 0 )
 shape = SubResource( 2 )
+
+[node name="Platform7" parent="." instance=ExtResource( 3 )]
+position = Vector2( 3928.83, 1056.21 )
+
+[node name="CollisionShape2D" parent="Platform7" index="0"]
+position = Vector2( -1.15381, 4.5083 )
+shape = SubResource( 10 )
 
 [node name="Mushroom" parent="." instance=ExtResource( 4 )]
 position = Vector2( 2207.6, 950.138 )
@@ -110,9 +188,29 @@ position = Vector2( 2207.6, 950.138 )
 [node name="Mushroom2" parent="." instance=ExtResource( 4 )]
 position = Vector2( 2844.51, 503.699 )
 
+[node name="Mushroom4" parent="." instance=ExtResource( 4 )]
+position = Vector2( 3851.36, 975.566 )
+
 [node name="Mushroom3" parent="." instance=ExtResource( 4 )]
 position = Vector2( 3022.84, 120.344 )
 rotation = -2.46093
+
+[node name="Lever" parent="." instance=ExtResource( 5 )]
+position = Vector2( 1697.2, 957.174 )
+
+[node name="Lever2" parent="." instance=ExtResource( 5 )]
+position = Vector2( 2921.13, 927.625 )
+scale = Vector2( 1.5, 1.5 )
+
+[node name="Birb" parent="." instance=ExtResource( 6 )]
+position = Vector2( 3817.02, 569.547 )
+
+[node name="AnimatedSprite" parent="Birb" index="0"]
+animation = "Carry"
+frame = 0
+
+[node name="CutscenePlayer" parent="Birb" index="2"]
+anims/Enter = SubResource( 9 )
 
 
 [editable path="Platform2"]
@@ -121,10 +219,16 @@ rotation = -2.46093
 
 [editable path="Platform9"]
 
-[editable path="Platform7"]
-
 [editable path="Platform4"]
 
 [editable path="Platform8"]
 
+[editable path="Platform11"]
+
+[editable path="Platform12"]
+
 [editable path="Platform3"]
+
+[editable path="Platform7"]
+
+[editable path="Birb"]

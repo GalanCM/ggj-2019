@@ -35,10 +35,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.3, 1, 1.7, 2.5, 4 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.9, 2, 4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( -24.0265, -123.983 ), Vector2( 64.802, -128 ), Vector2( 320.356, -120 ), Vector2( 575.91, -136 ), Vector2( 867.971, -114 ), Vector2( 2000, -1000 ) ]
+"values": [ Vector2( -24.0265, -123.983 ), Vector2( 213.851, -316.552 ), Vector2( 547.796, -306.344 ), Vector2( 1131.11, -576.125 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("AnimatedSprite:playing")
@@ -71,7 +71,7 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0, 2.5, 4 ),
+"times": PoolRealArray( 0, 2, 4 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "values": [ {
 "args": [  ],
@@ -91,7 +91,7 @@ tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0, 2.5 ),
+"times": PoolRealArray( 0, 2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ "Carry", "Empty" ]
@@ -99,7 +99,7 @@ tracks/4/keys = {
 
 [sub_resource type="RectangleShape2D" id=4]
 
-extents = Vector2( 50, 50 )
+extents = Vector2( 230.57, 50 )
 
 [node name="Birb" type="Node2D"]
 script = ExtResource( 1 )
@@ -109,6 +109,7 @@ position = Vector2( -24.0265, -123.983 )
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 1 )
 animation = "Empty"
+frame = 1
 playing = true
 centered = false
 offset = Vector2( -50, 0 )

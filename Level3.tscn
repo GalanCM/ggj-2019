@@ -1,0 +1,197 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://level 3 part 4.png" type="Texture" id=1]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Platform.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Mushroom.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Lever.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Turtle.tscn" type="PackedScene" id=6]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+extents = Vector2( 153.161, 241.881 )
+
+[sub_resource type="RectangleShape2D" id=2]
+
+extents = Vector2( 1716.46, 20 )
+
+[sub_resource type="RectangleShape2D" id=3]
+
+extents = Vector2( 168.547, 174.282 )
+
+[sub_resource type="RectangleShape2D" id=4]
+
+extents = Vector2( 163.725, 171.304 )
+
+[sub_resource type="RectangleShape2D" id=5]
+
+extents = Vector2( 133.97, 24.8324 )
+
+[sub_resource type="RectangleShape2D" id=6]
+
+extents = Vector2( 106.918, 24.8324 )
+
+[sub_resource type="RectangleShape2D" id=7]
+
+extents = Vector2( 123.607, 24.8324 )
+
+[sub_resource type="RectangleShape2D" id=8]
+
+extents = Vector2( 215.613, 171.304 )
+
+[sub_resource type="RectangleShape2D" id=9]
+
+extents = Vector2( 332.838, 272.667 )
+
+[sub_resource type="Animation" id=10]
+
+resource_name = "Walk"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 4719.19, 632.806 ), Vector2( 5419.19, 662 ) ]
+}
+tracks/1/type = "animation"
+tracks/1/path = NodePath("WalkCyclePlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"clips": PoolStringArray( "Walk", "[stop]" ),
+"times": PoolRealArray( 0, 5 )
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 3 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "fade_out"
+} ]
+}
+
+[node name="Level3" type="Node2D"]
+
+[node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+centered = false
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 3820.86, 442.939 )
+
+[node name="Platform" parent="." instance=ExtResource( 3 )]
+editor/display_folded = true
+position = Vector2( 146.667, 763.359 )
+
+[node name="CollisionShape2D" parent="Platform" index="0"]
+shape = SubResource( 1 )
+
+[node name="Platform2" parent="." instance=ExtResource( 3 )]
+editor/display_folded = true
+position = Vector2( 1713.12, 1019.97 )
+
+[node name="CollisionShape2D" parent="Platform2" index="0"]
+shape = SubResource( 2 )
+
+[node name="Platform3" parent="." instance=ExtResource( 3 )]
+editor/display_folded = true
+position = Vector2( 852.528, 829.6 )
+
+[node name="CollisionShape2D" parent="Platform3" index="0"]
+position = Vector2( -3.54565, 3.54559 )
+shape = SubResource( 3 )
+
+[node name="Platform4" parent="." instance=ExtResource( 3 )]
+editor/display_folded = true
+position = Vector2( 1855.23, 839.528 )
+
+[node name="CollisionShape2D" parent="Platform4" index="0"]
+position = Vector2( -3.54565, 3.54559 )
+shape = SubResource( 4 )
+
+[node name="Platform5" parent="." instance=ExtResource( 3 )]
+editor/display_folded = true
+position = Vector2( 2264.64, 859.307 )
+
+[node name="CollisionShape2D" parent="Platform5" index="0"]
+shape = SubResource( 5 )
+
+[node name="Platform6" parent="." instance=ExtResource( 3 )]
+editor/display_folded = true
+position = Vector2( 2568.63, 784.569 )
+
+[node name="CollisionShape2D" parent="Platform6" index="0"]
+shape = SubResource( 6 )
+
+[node name="Platform7" parent="." instance=ExtResource( 3 )]
+editor/display_folded = true
+position = Vector2( 2960.66, 694.242 )
+
+[node name="CollisionShape2D" parent="Platform7" index="0"]
+shape = SubResource( 7 )
+
+[node name="Platform8" parent="." instance=ExtResource( 3 )]
+editor/display_folded = true
+position = Vector2( 3479.38, 916.798 )
+
+[node name="CollisionShape2D" parent="Platform8" index="0"]
+position = Vector2( -3.54565, 3.54559 )
+shape = SubResource( 8 )
+
+[node name="Platform9" parent="." instance=ExtResource( 3 )]
+editor/display_folded = true
+position = Vector2( 4002.78, 798.705 )
+
+[node name="CollisionShape2D" parent="Platform9" index="0"]
+position = Vector2( -3.54565, 3.54559 )
+shape = SubResource( 9 )
+
+[node name="Mushroom" parent="." instance=ExtResource( 4 )]
+position = Vector2( 556.933, 949.118 )
+
+[node name="Mushroom2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 3571.95, 692.521 )
+
+[node name="Lever" parent="." instance=ExtResource( 5 )]
+position = Vector2( 1409.83, 915.586 )
+scale = Vector2( 1.6, 1.6 )
+
+[node name="Turtle" parent="." instance=ExtResource( 6 )]
+position = Vector2( 4719.19, 632.806 )
+
+[node name="MovementPlayer" type="AnimationPlayer" parent="Turtle"]
+anims/Walk = SubResource( 10 )
+
+
+[editable path="Platform"]
+
+[editable path="Platform2"]
+
+[editable path="Platform3"]
+
+[editable path="Platform4"]
+
+[editable path="Platform5"]
+
+[editable path="Platform6"]
+
+[editable path="Platform7"]
+
+[editable path="Platform8"]
+
+[editable path="Platform9"]

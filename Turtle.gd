@@ -8,3 +8,9 @@ func _physics_process(delta: float) -> void:
 		if collision and collision.collider is Player:
 			activated = true
 			$MovementPlayer.play("Walk")
+			
+func fade_out():
+	var camera = get_tree().get_nodes_in_group("Camera")
+	if camera.size() > 0:
+		camera = camera[0]
+		camera.fade_out()

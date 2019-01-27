@@ -27,7 +27,7 @@ _global_script_class_icons={
 [application]
 
 config/name="GGJ 2019"
-run/main_scene="res://GameWorld.tscn"
+run/main_scene="res://Level2.tscn"
 config/icon="res://icon.png"
 
 [display]
@@ -66,4 +66,5 @@ Jump={
 [rendering]
 
 quality/driver/driver_name="GLES2"
+environment/default_clear_color=Color( 0.0470588, 0.0470588, 0.0470588, 1 )
 environment/default_environment="res://default_env.tres"

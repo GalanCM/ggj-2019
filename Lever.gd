@@ -12,4 +12,4 @@ func _physics_process(delta):
 	if (collider != null and collider.collider is Player):
 		var relative_X = (collider.position-global_position)[0]
 		
-		rotation_degrees = clamp(rotation_degrees+(relative_X*delta),-20,20)
+		rotation_degrees = clamp(rotation_degrees+(relative_X*delta * 0.4),-20,20)

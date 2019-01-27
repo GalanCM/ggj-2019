@@ -14,8 +14,9 @@ func _ready() -> void:
 func spawn(body) -> void:
 	if body is Player:
 		if spawn_area_enter_count == 1:
-			
 			yield($SpawnArea, "body_exited")
+			$SpawnArea.queue_free()
+			$CutscenePlayer.play("Enter")
 			show()
 		else:
 			spawn_area_enter_count += 1
