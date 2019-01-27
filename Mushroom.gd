@@ -20,6 +20,7 @@ func _physics_process(delta: float) -> void:
 func bounce(body):
 	if (body is Player):
 		emit_signal("player_bounce")
+		$MushroomSound.play()
 
 		if rotation == 0 and body.global_position.y < global_position.y-20:
 			body.velocity.y = min(body.velocity.y * -1.5, -50)
