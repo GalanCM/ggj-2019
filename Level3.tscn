@@ -1,12 +1,13 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=20 format=2]
 
-[ext_resource path="res://level 3 part 7.png" type="Texture" id=1]
+[ext_resource path="res://level 3 part 8.png" type="Texture" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Platform.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Mushroom.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Lever.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Turtle.tscn" type="PackedScene" id=6]
 [ext_resource path="res://water.png" type="Texture" id=7]
+[ext_resource path="res://Killfield.gd" type="Script" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -84,6 +85,10 @@ tracks/2/keys = {
 "method": "fade_out"
 } ]
 }
+
+[sub_resource type="RectangleShape2D" id=11]
+
+extents = Vector2( 1080.26, 171.717 )
 
 [node name="Level3" type="Node2D"]
 
@@ -178,10 +183,22 @@ position = Vector2( 4723.03, 677.656 )
 [node name="MovementPlayer" type="AnimationPlayer" parent="Turtle"]
 anims/Walk = SubResource( 10 )
 
-[node name="Sprite2" type="Sprite" parent="."]
-position = Vector2( 5393, 776.338 )
+[node name="Water" type="Sprite" parent="."]
+position = Vector2( 5393, 764.445 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 7 )
+
+[node name="Respawn" type="Position2D" parent="." groups=[
+"Respawn",
+]]
+position = Vector2( 4176.11, 357.861 )
+
+[node name="Killfield" type="Area2D" parent="."]
+position = Vector2( 5368.02, 921.485 )
+script = ExtResource( 8 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killfield"]
+shape = SubResource( 11 )
 
 
 [editable path="Platform"]

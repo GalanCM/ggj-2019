@@ -4,10 +4,11 @@ var activated := false
 
 func _physics_process(delta: float) -> void:
 	if not activated:
-		var collision = $Shell.move_and_collide(Vector2(0,0))
-		if collision and collision.collider is Player:
+		var player = get_tree().get_nodes_in_group("Player")[0]
+		if $Start.overlaps_body(player):
 			activated = true
 			$MovementPlayer.play("Walk")
+			player.sit()
 			
 func fade_out():
 	var camera = get_tree().get_nodes_in_group("Camera")

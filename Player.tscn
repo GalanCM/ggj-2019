@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
 [ext_resource path="res://player animations/player_idle1.png" type="Texture" id=2]
@@ -10,8 +10,9 @@
 [ext_resource path="res://player animations/player_run2.png" type="Texture" id=8]
 [ext_resource path="res://player animations/player_run3.png" type="Texture" id=9]
 [ext_resource path="res://player animations/player_run4.png" type="Texture" id=10]
-[ext_resource path="res://Camera.gd" type="Script" id=11]
-[ext_resource path="res://fade.png" type="Texture" id=12]
+[ext_resource path="res://player animations/player_sit.png" type="Texture" id=11]
+[ext_resource path="res://Camera.gd" type="Script" id=12]
+[ext_resource path="res://fade.png" type="Texture" id=13]
 
 [sub_resource type="SpriteFrames" id=3]
 
@@ -34,6 +35,11 @@ animations = [ {
 "frames": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ) ],
 "loop": true,
 "name": "run",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 11 ) ],
+"loop": true,
+"name": "sit",
 "speed": 5.0
 } ]
 
@@ -73,7 +79,7 @@ position = Vector2( 0, 10 )
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 3 )
 animation = "idle"
-frame = 1
+frame = 2
 playing = true
 
 [node name="Body" type="CollisionShape2D" parent="."]
@@ -98,7 +104,7 @@ drag_margin_left = 0.3
 drag_margin_right = 0.0
 editor_draw_limits = true
 editor_draw_drag_margin = true
-script = ExtResource( 11 )
+script = ExtResource( 12 )
 
 [node name="ZoomTween" type="Tween" parent="Camera2D"]
 playback_process_mode = 0
@@ -107,7 +113,7 @@ playback_process_mode = 0
 modulate = Color( 1, 1, 1, 0 )
 scale = Vector2( 2, 2 )
 z_index = 1000
-texture = ExtResource( 12 )
+texture = ExtResource( 13 )
 offset = Vector2( 640, 0 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Camera2D/Fade"]

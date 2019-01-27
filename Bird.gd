@@ -47,6 +47,7 @@ func grab_player():
 	player.global_transform = player_transform
 	player.hide()
 	
+	MusicPlayer.switch()
 #	yield(get_tree().create_timer(0.1), "timeout")
 #	var camera = get_tree().get_nodes_in_group("Camera")
 #	if camera.size() > 0:

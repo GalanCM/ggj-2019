@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Thereof.ogg-93e44512d44dd9663fe7df2da2ff74a9.oggstr"
+
+[deps]
+
+source_file="res://Thereof.ogg"
+dest_files=[ "res://.import/Thereof.ogg-93e44512d44dd9663fe7df2da2ff74a9.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

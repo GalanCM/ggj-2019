@@ -5,6 +5,8 @@ var jumping := false
 var velocity := Vector2()
 const is_player = true
 
+var sitting = false
+
 func _ready() -> void:
 	if get_tree().get_nodes_in_group("Level").size() > 1 and get_parent().name != "Level1":
 		queue_free()
@@ -13,6 +15,10 @@ func _ready() -> void:
 		get_node("/root/Gameworld").call_deferred("add_child", self)
 
 func _physics_process(delta: float) -> void:
+	if sitting:
+		move_and_slide_with_snap(Vector2(0,50), Vector2(0,5), Vector2(0,-1))
+		return
+	
 	var acceleration := Vector2()
 
 	# determine acceleration for this frame
@@ -68,3 +74,12 @@ func _physics_process(delta: float) -> void:
 func idle():
 	if $AnimatedSprite:
 		$AnimatedSprite.play("idle")
+
+func sit():
+	sitting = true
+	if $AnimatedSprite:
+		$AnimatedSprite.play("sit")
+		
+func respawn():
+	var respawn = get_tree().get_nodes_in_group("Respawn")[0]
+	global_position = respawn.global_position
