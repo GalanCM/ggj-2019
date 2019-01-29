@@ -170,6 +170,9 @@ shape = SubResource( 9 )
 [node name="Mushroom" parent="." instance=ExtResource( 4 )]
 position = Vector2( 556.933, 949.118 )
 
+[node name="Mushroom3" parent="." instance=ExtResource( 4 )]
+position = Vector2( 2754.4, 941.833 )
+
 [node name="Mushroom2" parent="." instance=ExtResource( 4 )]
 position = Vector2( 3571.95, 692.521 )
 
