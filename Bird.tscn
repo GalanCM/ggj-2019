@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Bird.gd" type="Script" id=1]
 [ext_resource path="res://npcs/birbfly_down.png" type="Texture" id=2]
 [ext_resource path="res://npcs/birbfly_up.png" type="Texture" id=3]
 [ext_resource path="res://npcs/birbcarry_down.png" type="Texture" id=4]
 [ext_resource path="res://npcs/birbcarry_up.png" type="Texture" id=5]
+[ext_resource path="res://SFX/bird.wav" type="AudioStream" id=6]
 
 [sub_resource type="SpriteFrames" id=1]
 
@@ -126,4 +127,8 @@ anims/Carry = SubResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpawnArea"]
 shape = SubResource( 4 )
+
+[node name="BirbPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 6 )
+volume_db = -10.0
 

@@ -10,6 +10,8 @@ func _physics_process(delta: float) -> void:
 			$MovementPlayer.play("Walk")
 			player.sit()
 			
+			$TurtlePlayer.play()
+			
 func fade_out():
 	var camera = get_tree().get_nodes_in_group("Camera")
 	if camera.size() > 0:

@@ -21,11 +21,6 @@ func spawn(body) -> void:
 		else:
 			spawn_area_enter_count += 1
 			
-#		if spawn_area_enter_count == 1:
-#			var camera = get_tree().get_nodes_in_group("Camera")
-#			if camera.size() > 0:
-#				camera[0].zoom_to(0.5)
-			
 	
 func trigger(body):
 	if visible and body is Player and body.is_physics_processing() == true:
@@ -48,20 +43,14 @@ func grab_player():
 	player.hide()
 	
 	MusicPlayer.switch()
-#	yield(get_tree().create_timer(0.1), "timeout")
-#	var camera = get_tree().get_nodes_in_group("Camera")
-#	if camera.size() > 0:
-#		camera[0].zoom_to(1.2)
+	
+	$BirbPlayer.play()
 	
 func release_player():
 	var player = get_tree().get_nodes_in_group("Player")
 	if player.size() == 0:
 		return
 	player = player[0]
-#
-#	var camera = get_tree().get_nodes_in_group("Camera")
-#	if camera.size() > 0:
-#		camera[0].zoom_to(1.2)
 	
 	var player_transform = player.global_transform
 	$AnimatedSprite.remove_child(player)
