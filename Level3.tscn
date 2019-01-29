@@ -98,7 +98,7 @@ texture = ExtResource( 1 )
 centered = false
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 3820.86, 442.939 )
+position = Vector2( 920, 540 )
 
 [node name="Platform" parent="." instance=ExtResource( 3 )]
 editor/display_folded = true
@@ -174,7 +174,7 @@ position = Vector2( 556.933, 949.118 )
 position = Vector2( 3571.95, 692.521 )
 
 [node name="Lever" parent="." instance=ExtResource( 5 )]
-position = Vector2( 1409.83, 915.586 )
+position = Vector2( 1409.83, 902.945 )
 scale = Vector2( 1.6, 1.6 )
 
 [node name="Turtle" parent="." instance=ExtResource( 6 )]

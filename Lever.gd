@@ -14,6 +14,6 @@ func _physics_process(delta):
 		if not $LeverPlayer.playing:
 			$LeverPlayer.play()
 		
-		rotation_degrees = clamp(rotation_degrees+(relative_X*delta * 0.4),-17,17)
+		rotation_degrees = clamp(rotation_degrees+(relative_X*delta * 0.4),-20,20)
 	elif $LeverPlayer.playing:
 		$LeverPlayer.stop()
