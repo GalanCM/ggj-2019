@@ -2,6 +2,7 @@ extends KinematicBody2D
 class_name Player
 
 var jumping := false
+var in_air := false
 var velocity := Vector2()
 const is_player = true
 
@@ -41,6 +42,8 @@ func _physics_process(delta: float) -> void:
 	# apply jump
 	if Input.is_action_just_pressed("Jump") and is_on_floor():
 		jumping = true
+		$JumpPlayer.play()
+		$WalkPlayer.stop()
 		velocity.y = -240
 	elif Input.is_action_pressed("Jump") and jumping:
 		velocity.y -= 4
@@ -70,6 +73,17 @@ func _physics_process(delta: float) -> void:
 		move_and_slide_with_snap(velocity, Vector2(0,5), Vector2(0,-1))
 	else:
 		move_and_slide(velocity, Vector2(0,-1))
+		
+	# walking sound effects
+	if is_on_floor() and ( Input.is_action_just_pressed("Left") or Input.is_action_just_pressed("Right") or (velocity.x != 0 and in_air == true) ):
+		if not $WalkPlayer.playing:
+			$WalkPlayer.play()
+	elif not is_on_floor() and $WalkPlayer.playing:
+		$WalkPlayer.stop()
+	if not is_on_floor():
+		in_air = true
+	else:
+		in_air = false
 		
 func idle():
 	if $AnimatedSprite:
