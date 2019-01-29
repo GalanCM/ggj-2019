@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=2]
 
-[ext_resource path="res://level 2 part 11.png" type="Texture" id=1]
+[ext_resource path="res://level 2 final final.png" type="Texture" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Platform.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Mushroom.tscn" type="PackedScene" id=4]
@@ -214,7 +214,6 @@ position = Vector2( 3817.02, 569.547 )
 
 [node name="AnimatedSprite" parent="Birb" index="0"]
 animation = "Carry"
-frame = 0
 
 [node name="CutscenePlayer" parent="Birb" index="2"]
 anims/Enter = SubResource( 9 )

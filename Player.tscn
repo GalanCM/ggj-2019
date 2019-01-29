@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
 [ext_resource path="res://player animations/player_idle1.png" type="Texture" id=2]
@@ -13,6 +13,8 @@
 [ext_resource path="res://player animations/player_sit.png" type="Texture" id=11]
 [ext_resource path="res://Camera.gd" type="Script" id=12]
 [ext_resource path="res://fade.png" type="Texture" id=13]
+[ext_resource path="res://walk.wav" type="AudioStream" id=14]
+[ext_resource path="res://Jump.wav" type="AudioStream" id=15]
 
 [sub_resource type="SpriteFrames" id=3]
 
@@ -69,6 +71,15 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
+[sub_resource type="AudioStreamRandomPitch" id=5]
+
+audio_stream = ExtResource( 14 )
+
+[sub_resource type="AudioStreamRandomPitch" id=6]
+
+audio_stream = ExtResource( 15 )
+random_pitch = 1.05
+
 [node name="Player" type="KinematicBody2D" groups=[
 "Player",
 ]]
@@ -79,7 +90,6 @@ position = Vector2( 0, 10 )
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 3 )
 animation = "idle"
-frame = 2
 playing = true
 
 [node name="Body" type="CollisionShape2D" parent="."]
@@ -118,4 +128,12 @@ offset = Vector2( 640, 0 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Camera2D/Fade"]
 anims/FadeOut = SubResource( 4 )
+
+[node name="WalkPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource( 5 )
+volume_db = -10.0
+
+[node name="JumpPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource( 6 )
+volume_db = -20.0
 
