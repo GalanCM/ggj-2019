@@ -14,6 +14,11 @@ func _physics_process(delta):
 		if not $LeverPlayer.playing:
 			$LeverPlayer.play()
 		
-		rotation_degrees = clamp(rotation_degrees+(relative_X*delta * 0.4),-20,20)
+		var angle = collider.normal.angle()
+		if angle > -0.4:
+			rotation_degrees = clamp(rotation_degrees+(relative_X*delta * 0.4),-20,20)
+		else:
+			rotation_degrees = clamp(rotation_degrees+(-relative_X*delta * 0.2),-20,20)
+		
 	elif $LeverPlayer.playing:
 		$LeverPlayer.stop()
